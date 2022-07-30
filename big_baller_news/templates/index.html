@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+{% block head %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>NBA News Aggregator</title>
+    <div class=background>
+            <img src="{{url_for('static', filename='Big Baller News.png')}}">
+    </div>
+</head>
+{% endblock %}
+{% block body %}
+<body>
+    <div class="columns">
+        <div class="column side"></div>
+        <div class="column main">
+            <table class="NBA">
+                <tr>
+                    <th>
+                        <a class="website" href="https://www.nba.com/">NBA</a>
+                    </th>
+                </tr>
+                {% for i in range(0, len_nba) %}
+                    <tr>
+                        <td>
+                            <a href={{article_links_nba[i]}}>{{ article_titles_nba[i] }}</a>
+                        </td>
+                    </tr>
+                {% endfor %}  
+            </table>
+
+            <table class="Bleacher_Report">
+                <tr>
+                    <th>
+                        <a class="website" href="https://bleacherreport.com/nba">Bleacher Report</a>
+                    </th>
+                </tr>
+                {% for i in range(0, len_br) %}
+                    <tr>
+                        <td>
+                            <a href={{article_links_br[i]}}>{{ article_titles_br[i] }}</a>
+                        </td>
+                    </tr>
+                {% endfor %}  
+            </table>
+        </div>
+        <div class="column main">
+            <table class="ESPN">
+                <tr>
+                    <th>
+                        <a class="website" href="https://www.espn.com/nba/">ESPN</a>
+                    </th>
+                </tr>
+                {% for i in range(0, len_espn) %}
+                    <tr>
+                        <td>
+                            <a href={{article_links_espn[i]}}>{{ article_titles_espn[i] }}</a>
+                        </td>
+                    </tr>
+                {% endfor %}    
+            </table>
+
+
+            <table class="The_Athletic">
+                <tr>
+                    <th>
+                        <a class="website" href="https://theathletic.com/nba/">The Athletic</a>
+                    </th>
+                </tr>
+                {% for i in range(0, len_ath) %}
+                    <tr>
+                        <td>
+                            <a href={{article_links_ath[i]}}>{{ article_titles_ath[i] }}</a>
+                        </td>
+                    </tr>
+                {% endfor %}  
+            </table>
+        </div>
+        <div class="column side"></div>
+    </div>
+
+
+    <div class=columns>
+        <div class="column side"></div>
+        <div class="column main">    
+        </div>
+
+        <div class="column main">
+        </div>
+        <div class="column side"></div>
+    </div>    
+</body>
+{% endblock %}
+</html>
